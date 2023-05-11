@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class NoteRequest {
 
     private Integer uid;
+    private Integer id;
     private String title;
     private String message;
 }

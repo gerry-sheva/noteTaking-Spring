@@ -38,7 +38,7 @@ public class NoteService {
     }
 
     public void updateNote(NoteRequest newNote) {
-        Note note = noteRepository.findById(newNote.getUid());
+        Note note = noteRepository.findById(newNote.getId());
         note.setTitle(newNote.getTitle());
         note.setMessage(newNote.getMessage());
         noteRepository.save(note);
