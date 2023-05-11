@@ -7,10 +7,7 @@ import com.sheva.notetaking.model.UserNoteRequest;
 import com.sheva.notetaking.service.NoteService;
 import com.sheva.notetaking.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class MainController {
         userService.addUser(user);
     }
 
-    @GetMapping("/notes")
+    @PostMapping("/notes")
     public List<Note> getAllNotes(@RequestBody UserNoteRequest userNoteRequest) {
         return noteService.getNoteByUser(userNoteRequest);
     }
@@ -44,5 +41,10 @@ public class MainController {
     @PostMapping("/note")
     public void addNote(@RequestBody NoteRequest newNote) {
         noteService.addNote(newNote);
+    }
+
+    @PutMapping("/note")
+    public void updateNote(@RequestBody NoteRequest newNote) {
+        noteService.updateNote(newNote);
     }
 }

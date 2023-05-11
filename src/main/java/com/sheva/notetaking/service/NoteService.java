@@ -36,4 +36,11 @@ public class NoteService {
         note.setUser(user);
         noteRepository.save(note);
     }
+
+    public void updateNote(NoteRequest newNote) {
+        Note note = noteRepository.findById(newNote.getUid());
+        note.setTitle(newNote.getTitle());
+        note.setMessage(newNote.getMessage());
+        noteRepository.save(note);
+    }
 }

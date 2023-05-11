@@ -16,7 +16,7 @@ public class Note {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer note_id;
+    private Integer id;
 
     private String title;
 
